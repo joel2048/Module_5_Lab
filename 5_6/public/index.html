@@ -1,0 +1,58 @@
+<html lang="en">
+  <head>
+    <title>Calculator Example</title>
+  </head>
+  <body>
+    <button id="addButton">add</button>
+    <button id="subButton">sub</button>
+    <button id="divButton">div</button>
+    <button id="multiButton">multi</button>
+    <div>
+      Result
+      <span id="result"></span>
+    </div>
+  </body>
+  <script>
+    let num1 = 2;
+    let num2 = 4;
+    const add = () => {
+        fetch(`/calculator/add?num1=${num1}&num2=${num2}`)
+            .then((response) => response.json())
+            .then((data) => {
+                document.getElementById("result").innerHTML = data.result;
+      });
+    }
+
+    const sub = () => {
+        fetch(`/calculator/sub?num1=${num1}&num2=${num2}`)
+            .then((response) => response.json())
+            .then((data) => {
+        document.getElementById("result").innerHTML = data.result;
+      });
+    }
+
+    const div = () => {
+        fetch(`/calculator/div?num1=${num1}&num2=${num2}`)
+            .then((response) => response.json())
+            .then((data) => {
+        document.getElementById("result").innerHTML = data.result;
+      });
+    }
+
+    const multi = () => {
+        fetch(`/calculator/multi?num1=${num1}&num2=${num2}`)
+            .then((response) => response.json())
+            .then((data) => {
+        document.getElementById("result").innerHTML = data.result;
+      });
+    }
+
+    //buttons
+
+    document.getElementById("addButton").onclick = add
+    document.getElementById("subButton").onclick = sub
+    document.getElementById("divButton").onclick = div
+    document.getElementById("multiButton").onclick = multi
+
+  </script>
+</html>
